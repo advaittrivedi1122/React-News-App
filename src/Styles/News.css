@@ -1,0 +1,7 @@
+.News{
+    margin: 5vh 0;
+    display: flex;
+    /* width: 100%; */
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}

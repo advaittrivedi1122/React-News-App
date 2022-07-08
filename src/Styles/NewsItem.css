@@ -1,0 +1,20 @@
+.NewsItem{
+    width: 23vw;
+    /* background-color: aqua; */
+    margin: 1vw 0;
+    /* border: 0.1px solid black; */
+    
+}
+
+.link{
+    text-decoration: none;
+}
+
+@media screen and (max-width: 700px){
+    body{
+        background-color: yellow;
+    }
+    .NewsItem{
+        width: 90vw;
+    }
+}
