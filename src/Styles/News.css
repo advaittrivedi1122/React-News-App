@@ -1,7 +1,15 @@
 .News{
-    margin: 5vh 0;
+    margin-top: 10vh;
+    margin-bottom: 15vh;
     display: flex;
     /* width: 100%; */
     justify-content: space-evenly;
     flex-wrap: wrap;
+}
+
+@media screen and (max-width:700px) {
+    .News{
+        margin-top: 5vh;
+        margin-bottom: 10vh;
+    }
 }

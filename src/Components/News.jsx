@@ -1,30 +1,44 @@
+import {memo} from 'react';
 import NewsItem from './NewsItem';
 import '../Styles/News.css';
 import { useState, useEffect } from 'react';
 
 
-const News = (props)=>{
-    
-    const FetchNews = async ()=>{
-        await fetch(props.url)
-        .then((response)=>response.json())
-        .then((data)=>{
-            setData(data["articles"]);
-        });
-    };
+const News = ({url, requestHeader})=>{
 
     const [data,setData] = useState([]);
 
+    const FetchNews = async ()=>{
+
+        await fetch(url, requestHeader)
+        .then((response)=>{
+            return response.json();
+        })
+        .then((object)=>{
+            // console.log(object);
+            setData(object.value);
+        });
+
+    };
+
+
     useEffect(()=>{
-        FetchNews();
-    });
+        // FetchNews();
+    },[]);
 
     
     return (
         <div className="News">
             {  
                 data.map((news,index)=>{
-                    return (<NewsItem key={index} image={news["urlToImage"]} title={news["title"]} content={news["content"]} readMore={news["url"]} source={news["source"]["name"]} />);
+                    // console.log(news.image.thumbnail);
+                    return (
+                    <NewsItem key={index} 
+                    image={news.image.thumbnail.contentUrl} 
+                    title={news.name} 
+                    content={news.description} 
+                    readMore={news.url} />
+                    );
                 })   
             }
             
@@ -32,4 +46,4 @@ const News = (props)=>{
     );
 };
 
-export default News;
+export default memo(News);

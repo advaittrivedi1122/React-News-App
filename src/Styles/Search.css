@@ -1,0 +1,17 @@
+.searchdiv{
+    display: flex;
+    justify-content: center;
+    margin: 3vh 0;
+}
+
+.searchbox{
+    width: 30%;
+    /* background-color: yellow; */
+
+}
+
+@media screen and (max-width: 700px) {
+    .searchbox{
+        width: 70%;
+    }
+}

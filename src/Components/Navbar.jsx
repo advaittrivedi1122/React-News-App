@@ -13,7 +13,7 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import ChromeReaderModeIcon from '@mui/icons-material/ChromeReaderMode';
 
-const pages = ['National','Business','Sports','World','Politics','Science','Technology','Entertainment'];
+const pages = ['General','Business','Entertainment','Health','Sports','Politics','Science','Technology',];
 // const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const ResponsiveAppBar = () => {
@@ -118,7 +118,7 @@ const ResponsiveAppBar = () => {
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2,mx:1 , color: 'white', display: 'block', fontWeight:700 }}
+                sx={{ my: 2,mx:0 , color: 'white', display: 'block', fontWeight:700 }}
               >
                 {page}
               </Button>

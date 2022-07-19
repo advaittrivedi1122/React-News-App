@@ -1,9 +1,15 @@
 .NewsItem{
-    width: 23vw;
+    width: 30vw;
     /* background-color: aqua; */
     margin: 1vw 0;
-    /* border: 0.1px solid black; */
+    border: 0.1px dotted black;
+    position: relative;
     
+}
+
+.btn{
+    position: absolute;
+    bottom: 0;
 }
 
 .link{
@@ -11,10 +17,8 @@
 }
 
 @media screen and (max-width: 700px){
-    body{
-        background-color: yellow;
-    }
     .NewsItem{
+        margin: 2vw 0;
         width: 90vw;
     }
 }

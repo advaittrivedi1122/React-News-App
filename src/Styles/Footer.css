@@ -2,9 +2,9 @@
     color: white;
     background-color: #D41313;
     padding: 10px 0;
-    position: relative;
-    /* bottom: 0; */
-    top: calc(100vh - 15.9vh);
+    position: absolute;
+    bottom: 0;
+    /* top: calc(100vh - 15.9vh); */
     width: 100%;
     display: flex;
     justify-content: center;
@@ -12,11 +12,12 @@
     font-size: 1rem;
     font-weight: bold;
     float: bottom;
+    margin-top: 5rem;
 }
 
 @media screen and (max-width: 700px) {
     .footer{
-        top: calc(100vh - 20.9vh);
+        /* top: calc(100vh - 20.9vh); */
         height: 3vh;
         font-size: 0.9rem;
     }

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {memo} from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -7,7 +8,7 @@ import { Button, CardActionArea, CardActions } from '@mui/material';
 import '../Styles/NewsItem.css';
 // import { a } from 'react-router-dom';
 
-export default function MultiActionAreaCard(props) {
+function MultiActionAreaCard(props) {
   return (
     <Card className='NewsItem'>
       <CardActionArea>
@@ -16,8 +17,10 @@ export default function MultiActionAreaCard(props) {
           component="img"
           height="140"
           image= {props.image}
+          style={{objectFit:"contain"}}
           alt="Image"
         />
+        {/* <img src={props.image} alt="" /> */}
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
             {props.title}
@@ -27,16 +30,16 @@ export default function MultiActionAreaCard(props) {
           </Typography>
           <br />
           <Typography>
-            Source: {props.source}
+            {/* Source: {props.source} */}
           </Typography>
           <br />
-          {/* <Typography>
-            Source: {props.date}
-          </Typography> */}
+          <Typography>
+            {/* Date: {props.date} */}
+          </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions>
-        <a className="link" href={props.readMore}>
+      <CardActions className='btn'>
+        <a className="link" href={props.readMore} target="blank">
           <Button size="small" variant="contained" color="primary">
             Read More
           </Button>
@@ -45,3 +48,5 @@ export default function MultiActionAreaCard(props) {
     </Card>
   );
 }
+
+export default memo(MultiActionAreaCard);

@@ -1,6 +1,13 @@
 .App{
-    height: 100%;
+    min-height: 100vh;
+    position: relative;
     display: flex;
     flex-direction: column;
     /* background-color: yellow; */
+}
+
+@media screen and (max-width: 700px) {
+    .App{
+        min-height: 92vh;
+    }
 }
