@@ -2,40 +2,29 @@ import Navbar from '../Components/Navbar';
 import Footer from '../Components/Footer';
 import News from '../Components/News';
 import Search from '../Components/Search';
+import {useState} from 'react';
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
-const myQuery = (searchQuery)=>{
-    return searchQuery;
-}
-
-
 
 const Home = ()=>{
-    // const fetchUrl = `https://newsapi.org/v2/top-headlines?country=in&apikey=${API_KEY}`;
 
+    const [query, setQuery] = useState("");
 
-    const baseUrl = "https://api.mediastack.com/v1/news";
+    const baseUrl = `http://api.mediastack.com/v1/news?access_key=${API_KEY}`;
 
-    // const fetchUrl = baseUrl 
-
-    const requestHeader = {
-        method : "GET",
-        headers : {
-            'X-access-key': API_KEY
-        }
-    };
+    const fetchUrl = baseUrl + `&keywords=${query}&countries=in`;
     
     
     return (
         <div className="Home">
             <Navbar />
 
-            <Search myQuery={myQuery} />
+            <Search setQuery={setQuery} />
 
-            
+            {/* <h1 align="center">{fetchUrl}</h1> */}
 
-            {/* <News url={fetchUrl} requestHeader={requestHeader} /> */}
+            <News url={fetchUrl} />
 
             
             <Footer />

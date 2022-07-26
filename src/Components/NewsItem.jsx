@@ -6,7 +6,6 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import '../Styles/NewsItem.css';
-// import { a } from 'react-router-dom';
 
 function MultiActionAreaCard(props) {
   return (
@@ -15,12 +14,11 @@ function MultiActionAreaCard(props) {
         <CardMedia
           className="image"
           component="img"
-          height="140"
+          // height="140"
           image= {props.image}
           style={{objectFit:"contain"}}
           alt="Image"
         />
-        {/* <img src={props.image} alt="" /> */}
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
             {props.title}
