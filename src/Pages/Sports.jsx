@@ -7,7 +7,7 @@ import {useState} from 'react';
 const API_KEY = process.env.REACT_APP_API_KEY;
 
 
-const Home = ()=>{
+const Sports = ()=>{
 
     const [query, setQuery] = useState("");
 
@@ -15,13 +15,13 @@ const Home = ()=>{
     const keywords = `&keywords=${query}`;
     const countries = `&countries=in`;
     const languages = `&languages=en`;
-    const categories = `&categories=`;
+    const categories = `&categories=sports`;
 
     const fetchUrl = baseUrl+keywords+countries+languages+categories;
     
     
     return (
-        <div className="Home">
+        <div className="Sports">
             <Navbar />
             <Search setQuery={setQuery} />
             <News url={fetchUrl} />
@@ -30,4 +30,4 @@ const Home = ()=>{
     )  
 }
 
-export default Home;
+export default Sports;

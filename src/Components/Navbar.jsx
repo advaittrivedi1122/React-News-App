@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { NavLink } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -7,14 +8,27 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-// import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-// import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import ChromeReaderModeIcon from '@mui/icons-material/ChromeReaderMode';
 
-const pages = ['General','Business','Entertainment','Health','Sports','Politics','Science','Technology',];
-
+const pages = ['General', 'Business', 'Entertainment', 'Health', 'Sports', 'Politics', 'Science', 'Technology',];
+const activeStyle = {
+  textDecoration: "none",
+  color: "yellow"
+}
+const mactiveStyle = {
+  textDecoration: "underline",
+  color: "black",
+}
+const inactiveStyle = {
+  textDecoration: "none",
+  color: "white"
+}
+const minactiveStyle = {
+  textDecoration: "none",
+  color: "black"
+}
 
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -31,7 +45,7 @@ const ResponsiveAppBar = () => {
 
 
   return (
-    <AppBar position="sticky" sx={{backgroundColor:'#D41313'}}>
+    <AppBar position="sticky" sx={{ backgroundColor: '#D41313' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <ChromeReaderModeIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
@@ -44,13 +58,12 @@ const ResponsiveAppBar = () => {
               display: { xs: 'none', md: 'flex' },
               fontFamily: 'monospace',
               fontWeight: 700,
-            //   textDecoration: 'underline',
               letterSpacing: '.1rem',
               color: 'inherit',
               textDecoration: 'none',
             }}
           >
-            React-NEWS
+            <NavLink to="/" style={inactiveStyle}>React-NEWS</NavLink>
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -83,9 +96,16 @@ const ResponsiveAppBar = () => {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
+                <NavLink
+                  to={`/${page}`}
+                  style={({ isActive }) =>
+                    isActive ? mactiveStyle : minactiveStyle
+                  }
+                >
+                  <MenuItem key={page} onClick={handleCloseNavMenu}>
+                    <Typography textAlign="center">{page}</Typography>
+                  </MenuItem>
+                </NavLink>
               ))}
             </Menu>
           </Box>
@@ -100,23 +120,29 @@ const ResponsiveAppBar = () => {
               flexGrow: 1,
               fontFamily: 'monospace',
               fontWeight: 700,
-            //   textDecoration: 'underline',
               letterSpacing: '.1rem',
               color: 'inherit',
               textDecoration: 'none',
             }}
           >
-            React-NEWS
+            <NavLink to="/" style={inactiveStyle}>React-NEWS</NavLink>
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex',justifyContent:'flex-end' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', justifyContent: 'flex-end' } }}>
             {pages.map((page) => (
               <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2,mx:0 , color: 'white', display: 'block', fontWeight:700 }}
+                  key={page}
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, mx: 0, color: 'white', display: 'block', fontWeight: 700 }}
+                >
+              <NavLink
+                to={`/${page}`}
+                style={({ isActive }) =>
+                  isActive ? activeStyle : inactiveStyle
+                }
               >
-                {page}
-              </Button>
+                  {page}
+              </NavLink>
+                </Button>
             ))}
           </Box>
 

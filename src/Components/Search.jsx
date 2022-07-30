@@ -16,7 +16,7 @@ export default function FormPropsTextFields(props) {
       autoComplete="off"
     >
       <div className="searchdiv">
-        <TextField id="outlined-search" label="Search field" type="search" onChange={(e)=>{props.setQuery(e.target.value)}} />
+        <TextField id="outlined-search" label="Search News" type="search" onChange={(e)=>{props.setQuery(e.target.value)}} />
       </div>
       
     </Box>

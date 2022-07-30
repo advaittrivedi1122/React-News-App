@@ -15,6 +15,7 @@ function MultiActionAreaCard(props) {
           className="image"
           component="img"
           // height="140"
+          width="100%"
           image= {props.image}
           style={{objectFit:"contain"}}
           alt="Image"
