@@ -1,9 +1,10 @@
-import 'dotenv/config';
+import * as dotenv from 'dotenv';
 import Navbar from '../Components/Navbar';
 import Footer from '../Components/Footer';
 import News from '../Components/News';
 import Search from '../Components/Search';
 import {useState} from 'react';
+dotenv.config();
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
