@@ -13,20 +13,20 @@ const News = ({ url }) => {
     const limit = 25;
 
     const FetchNews = async () => {
-
         await fetch(url + `&offset=${offset}`)
-            .then((response) => {
-                return response.json();
-            })
-            .then((object) => {
-                setData(data.concat(object.data));
-                setTotal(object.pagination.total);
-            });
-
+        .then((response) => {
+            return response.json();
+        })
+        .then((object) => {
+            setData(data.concat(object.data));
+            setTotal(object.pagination.total);
+        });
+        
     };
-
-
+    
+    
     useEffect(() => {
+        setData([]);
         FetchNews();
     }, [url, offset]);
 
