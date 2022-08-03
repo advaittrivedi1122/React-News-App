@@ -11,20 +11,18 @@ const Politics = ()=>{
 
     const [query, setQuery] = useState("");
 
-    const baseUrl = `http://api.mediastack.com/v1/news?access_key=${API_KEY}`;
-    const keywords = `&keywords=${query}`;
-    const countries = `&countries=in,ca,us`;
-    const languages = `&languages=en`;
-    const categories = `&categories=politics`;
+    const baseUrl = `https://api.nytimes.com/svc/search/v2/articlesearch.json?&api-key=${API_KEY}`;
+    const keywords = `&q=${query}`;
+    const categories = `&fq=politics`;
 
-    const fetchUrl = baseUrl+keywords+countries+languages+categories;
+    const fetchUrl = baseUrl+keywords+categories;
     
     
     return (
         <div className="Politics">
             <Navbar />
             <Search setQuery={setQuery} />
-            <News url={fetchUrl} />
+            <News url={fetchUrl} query={query} />
             <Footer />
         </div>
     )  

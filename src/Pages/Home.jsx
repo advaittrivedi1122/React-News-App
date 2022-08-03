@@ -11,22 +11,18 @@ const Home = ()=>{
 
     const [query, setQuery] = useState("");
 
-    // const baseUrl = `http://api.mediastack.com/v1/news?access_key=${API_KEY}`;
-    const baseUrl = `https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=${API_KEY}`;
+    const baseUrl = `https://api.nytimes.com/svc/search/v2/articlesearch.json?&api-key=${API_KEY}`;
     const keywords = `&q=${query}`;
-    // const countries = `&countries=in`;
-    // const languages = `&languages=en`;
-    // const categories = `&categories=`;
+    const categories = `&fq=`;
 
-    // const fetchUrl = baseUrl+keywords+countries+languages+categories;
-    const fetchUrl = baseUrl+keywords;
+    const fetchUrl = baseUrl+keywords+categories;
     
     
     return (
         <div className="Home">
             <Navbar />
             <Search setQuery={setQuery} />
-            <News url={fetchUrl} />
+            <News url={fetchUrl} query={query} />
             <Footer />
         </div>
     )  

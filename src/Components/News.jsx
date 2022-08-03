@@ -5,38 +5,45 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import '../Styles/News.css';
 
 
-const News = ({ url }) => {
+const News = ({url, query}) => {
 
     const [data, setData] = useState([]);
-    const [offset, setOffset] = useState(0);
-    const [total, setTotal] = useState(-1);
-    const limit = 25;
+    const [page, setPage] = useState(0);
+    const total = 200;
 
     const FetchNews = async () => {
-        await fetch(url + `&offset=${offset}`)
+        setTimeout(()=>{},1000);
+        await fetch(url + `&page=${page}`)
         .then((response) => {
             return response.json();
         })
         .then((object) => {
-            console.log(object);
-            setData(data.concat(object.data));
-            setTotal(object.pagination.total);
+            setData(data.concat(object.response.docs));
+        })
+        .catch((error)=>{
+            console.log(error);
         });
-        
     };
     
     
-    useEffect(() => {
+    useEffect(()=>{
         setData([]);
+        setPage(0);
+    }, [query]);
+
+    useEffect(() => {
+        // setData([]);
         FetchNews();
-    }, [url, offset]);
+    }, [url,page]);
+
+
 
     return (
 
         <InfiniteScroll
             dataLength={data.length} //This is important field to render the next data
-            next={() => setOffset(offset + limit)}
-            hasMore={data.length !== total}
+            next={() => setPage(page + 1)}
+            hasMore={page !== total}
             loader={<h4 align='center'>Loading...</h4>}
             endMessage={
                 <p style={{ textAlign: 'center' }}>
@@ -50,10 +57,11 @@ const News = ({ url }) => {
                     data.map((news, index) => {
                         return (
                             <NewsItem key={index}
-                                image={news.image}
-                                title={news.title}
-                                content={news.description}
-                                readMore={news.url}
+                                image={"https://www.nytimes.com/"+news.multimedia[2]?.url}
+                                title={news.headline?.main}
+                                abstract={news?.abstract}
+                                content={news?.lead_paragraph}
+                                readMore={news?.web_url}
                             />
                         );
                     })

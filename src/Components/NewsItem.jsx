@@ -24,6 +24,9 @@ function MultiActionAreaCard(props) {
           <Typography gutterBottom variant="h5" component="div">
             {props.title}
           </Typography>
+          <Typography gutterBottom variant="body1" component="div">
+            {props.abstract}
+          </Typography>
           <Typography variant="body2" color="text.secondary">
             {props.content}
           </Typography>

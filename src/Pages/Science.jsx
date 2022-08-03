@@ -11,20 +11,18 @@ const Science = ()=>{
 
     const [query, setQuery] = useState("");
 
-    const baseUrl = `http://api.mediastack.com/v1/news?access_key=${API_KEY}`;
-    const keywords = `&keywords=${query}`;
-    const countries = `&countries=`;
-    const languages = `&languages=en`;
-    const categories = `&categories=science`;
+    const baseUrl = `https://api.nytimes.com/svc/search/v2/articlesearch.json?&api-key=${API_KEY}`;
+    const keywords = `&q=${query}`;
+    const categories = `&fq=science`;
 
-    const fetchUrl = baseUrl+keywords+countries+languages+categories;
+    const fetchUrl = baseUrl+keywords+categories;
     
     
     return (
         <div className="Science">
             <Navbar />
             <Search setQuery={setQuery} />
-            <News url={fetchUrl} />
+            <News url={fetchUrl} query={query} />
             <Footer />
         </div>
     )  

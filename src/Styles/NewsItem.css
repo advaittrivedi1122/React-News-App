@@ -2,7 +2,7 @@
     width: 30vw;
     /* background-color: aqua; */
     margin: 1vw 0;
-    /* border: 0.1px dotted black; */
+    border: 0.1px solid rgb(212, 206, 206);
     position: relative;
     
 }
@@ -18,7 +18,7 @@
 
 @media screen and (max-width: 700px){
     .NewsItem{
-        margin: 2vw 0;
+        margin: 3vw 0;
         width: 90vw;
     }
 }

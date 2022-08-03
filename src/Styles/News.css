@@ -1,5 +1,5 @@
 .News{
-    margin-top: 10vh;
+    margin-top: 2vh;
     margin-bottom: 15vh;
     display: flex;
     /* width: 100%; */
@@ -9,7 +9,7 @@
 
 @media screen and (max-width:700px) {
     .News{
-        margin-top: 5vh;
+        margin-top: 0.5vh;
         margin-bottom: 10vh;
     }
 }
