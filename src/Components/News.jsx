@@ -18,6 +18,7 @@ const News = ({ url }) => {
             return response.json();
         })
         .then((object) => {
+            console.log(object);
             setData(data.concat(object.data));
             setTotal(object.pagination.total);
         });
